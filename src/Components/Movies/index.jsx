@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react";
-import { getMovies } from "../../services/movies";
 import "./Movies.css";
 import { Movie } from "../Movie";
 
-export function Movies() {
-  const [movies, setMovies] = useState();
-
-  //load data on first render
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getMovies();
-      setMovies(response);
-    }
-    fetchData();
-  }, []);
-
+export function Movies({ movies }) {
   return (
     <section>
-      {movies ? (
+      {movies.length !== 0 ? (
         <>
           <h3>Results:</h3>
           <div className="movies">
