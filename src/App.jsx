@@ -1,4 +1,5 @@
 import "./App.css";
+import { Movies } from "./Components/Movies";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <input type="text" />
         <button>Search</button>
       </form>
+      <Movies></Movies>
     </main>
   );
 }
