@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../services/movies";
+import { getMovies } from "../../services/movies";
+import "./Movies.css";
+import { Movie } from "../Movie";
+
 export function Movies() {
   const [movies, setMovies] = useState();
 
@@ -17,18 +20,11 @@ export function Movies() {
       {movies ? (
         <>
           <h3>Results:</h3>
-          {movies.map((movie) => {
-            return (
-              <div key={movie.imdbID}>
-                <p>Title: {movie.title}</p>
-                <p>Year: {movie.year}</p>
-                <img
-                  src={movie.poster}
-                  alt={`Poster from ${movie.title} movie`}
-                />
-              </div>
-            );
-          })}
+          <div className="movies">
+            {movies.map((movie) => {
+              return <Movie key={movie.id} movie={movie} />;
+            })}
+          </div>
         </>
       ) : (
         <p>No results</p>

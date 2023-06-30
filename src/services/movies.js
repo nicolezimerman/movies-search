@@ -10,7 +10,7 @@ export const getMovies = async () => {
     return {
       title: movie.Title,
       year: movie.Year,
-      imdbID: movie.imdbID,
+      id: movie.imdbID,
       type: movie.Type,
       poster: movie.Poster,
     };
